@@ -5,7 +5,19 @@ pipeline {
     stages {
         stage('Test') {
             steps {
-                sh 'node --version'
+                sh 'node test'
+            }
+        }
+
+        stage('Code Quality') {
+            steps {
+                sh './mvnw -Pprod clean verify sonar:sonar'
+            }
+        }
+
+        stage('Install') {
+            steps {
+                sh 'node install'
             }
         }
     }
