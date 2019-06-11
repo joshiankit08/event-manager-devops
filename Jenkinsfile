@@ -1,6 +1,6 @@
 pipeline {
     agent {
-        docker { image 'njhipster/jhipster:v6.0.1'
+        docker { image 'jhipster/jhipster:v6.0.1'
         args '-u jhipster -e MAVEN_OPTS="-Duser.home=./"' }
     }
     stages {
