@@ -36,7 +36,8 @@ pipeline {
 
         stage('Code Quality') {
             steps {
-                
+                sh 'echo run sonar'
+
             }
         }
 
