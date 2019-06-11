@@ -1,6 +1,7 @@
 pipeline {
     agent {
-        docker { image 'node:7-alpine' }
+        docker { image 'njhipster/jhipster:v6.0.1'
+        args '-u jhipster -e MAVEN_OPTS="-Duser.home=./"' }
     }
     stages {
         stage('Checkout'){
@@ -9,7 +10,7 @@ pipeline {
 
             }
         }
-        docker.image('jhipster/jhipster:v6.0.1').inside('-u jhipster -e MAVEN_OPTS="-Duser.home=./"') {
+       
         stage('check java') {
             sh "java -version"
         }
@@ -61,5 +62,5 @@ pipeline {
     }
 
         
-    }
+    
 }
