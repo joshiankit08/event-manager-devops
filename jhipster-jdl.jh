@@ -20,7 +20,7 @@ entity Invitation {
 }
 
 enum EventStatus{
-    CREATED, LIVE, CANCELLED
+    CREATED, LIVE, CLOSED, CANCELLED
 
 }
 

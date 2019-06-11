@@ -1,11 +1,11 @@
 package com.myapp.eventmanager.service.impl;
 
-import com.myapp.eventmanager.domain.Invitation;
-import com.myapp.eventmanager.domain.enumeration.InvitationStatus;
-import com.myapp.eventmanager.repository.InvitationRepository;
 import com.myapp.eventmanager.service.InvitationService;
+import com.myapp.eventmanager.domain.Invitation;
+import com.myapp.eventmanager.repository.InvitationRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -37,18 +37,7 @@ public class InvitationServiceImpl implements InvitationService {
     @Override
     public Invitation save(Invitation invitation) {
         log.debug("Request to save Invitation : {}", invitation);
-        checkStatusBeforeSave(invitation);
         return invitationRepository.save(invitation);
-    }
-
-    private void checkStatusBeforeSave(Invitation invitation) {
-        if(invitation.getGuest() != null){
-            if(invitation.getGuest().getId() != null){
-                invitation.setInvitationStatus(InvitationStatus.SENT);
-            }
-        } else {
-            invitation.setInvitationStatus(InvitationStatus.CREATED);
-        }
     }
 
     /**

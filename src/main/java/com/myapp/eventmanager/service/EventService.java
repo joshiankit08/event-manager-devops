@@ -1,6 +1,7 @@
 package com.myapp.eventmanager.service;
 
 import com.myapp.eventmanager.domain.Event;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
@@ -18,6 +19,8 @@ public interface EventService {
      * @return the persisted entity.
      */
     Event save(Event event);
+
+    Event update(Event event);
 
     /**
      * Get all the events.

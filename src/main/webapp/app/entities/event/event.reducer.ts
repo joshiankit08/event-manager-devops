@@ -1,17 +1,17 @@
 import axios from 'axios';
 import {
-  ICrudDeleteAction,
+  parseHeaderForLinks,
+  loadMoreDataWhenScrolled,
   ICrudGetAction,
   ICrudGetAllAction,
   ICrudPutAction,
-  loadMoreDataWhenScrolled,
-  parseHeaderForLinks
+  ICrudDeleteAction
 } from 'react-jhipster';
 
 import { cleanEntity } from 'app/shared/util/entity-utils';
-import { FAILURE, REQUEST, SUCCESS } from 'app/shared/reducers/action-type.util';
+import { REQUEST, SUCCESS, FAILURE } from 'app/shared/reducers/action-type.util';
 
-import { defaultValue, IEvent } from 'app/shared/model/event.model';
+import { IEvent, defaultValue } from 'app/shared/model/event.model';
 
 export const ACTION_TYPES = {
   FETCH_EVENT_LIST: 'event/FETCH_EVENT_LIST',

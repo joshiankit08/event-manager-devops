@@ -2,10 +2,10 @@ package com.myapp.eventmanager.web.rest;
 
 import com.myapp.eventmanager.EventmanagerApp;
 import com.myapp.eventmanager.domain.Event;
-import com.myapp.eventmanager.domain.enumeration.EventStatus;
 import com.myapp.eventmanager.repository.EventRepository;
 import com.myapp.eventmanager.service.EventService;
 import com.myapp.eventmanager.web.rest.errors.ExceptionTranslator;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.MockitoAnnotations;
@@ -29,6 +29,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.hamcrest.Matchers.hasItem;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+
+import com.myapp.eventmanager.domain.enumeration.EventStatus;
 /**
  * Integration tests for the {@Link EventResource} REST controller.
  */

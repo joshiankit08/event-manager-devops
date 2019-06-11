@@ -33,7 +33,7 @@
         {
             "fieldName": "eventStatus",
             "fieldType": "EventStatus",
-            "fieldValues": "CREATED,LIVE,CANCELLED"
+            "fieldValues": "CREATED,LIVE,CLOSED,CANCELLED"
         }
     ],
     "relationships": [

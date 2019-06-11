@@ -12,11 +12,11 @@ import reducer, {
   deleteEntity,
   getEntities,
   getEntity,
-  reset,
-  updateEntity
+  updateEntity,
+  reset
 } from 'app/entities/guest/guest.reducer';
-import { FAILURE, REQUEST, SUCCESS } from 'app/shared/reducers/action-type.util';
-import { defaultValue, IGuest } from 'app/shared/model/guest.model';
+import { REQUEST, SUCCESS, FAILURE } from 'app/shared/reducers/action-type.util';
+import { IGuest, defaultValue } from 'app/shared/model/guest.model';
 
 // tslint:disable no-invalid-template-strings
 describe('Entities reducer tests', () => {

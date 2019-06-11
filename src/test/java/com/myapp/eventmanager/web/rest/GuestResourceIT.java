@@ -5,6 +5,7 @@ import com.myapp.eventmanager.domain.Guest;
 import com.myapp.eventmanager.repository.GuestRepository;
 import com.myapp.eventmanager.service.GuestService;
 import com.myapp.eventmanager.web.rest.errors.ExceptionTranslator;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.MockitoAnnotations;

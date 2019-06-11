@@ -1,7 +1,7 @@
 package com.myapp.eventmanager.repository;
 
 import com.myapp.eventmanager.domain.Event;
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.*;
 import org.springframework.stereotype.Repository;
 
 

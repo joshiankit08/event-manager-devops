@@ -1,6 +1,7 @@
 package com.myapp.eventmanager.service;
 
 import com.myapp.eventmanager.domain.Invitation;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 

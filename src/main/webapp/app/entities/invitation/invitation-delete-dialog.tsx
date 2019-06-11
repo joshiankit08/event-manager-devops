@@ -1,10 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { RouteComponentProps } from 'react-router-dom';
-import { Button, Modal, ModalBody, ModalFooter, ModalHeader } from 'reactstrap';
+import { Modal, ModalHeader, ModalBody, ModalFooter, Button } from 'reactstrap';
+import { ICrudGetAction, ICrudDeleteAction } from 'react-jhipster';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
+import { IInvitation } from 'app/shared/model/invitation.model';
 import { IRootState } from 'app/shared/reducers';
-import { deleteEntity, getEntity } from './invitation.reducer';
+import { getEntity, deleteEntity } from './invitation.reducer';
 
 export interface IInvitationDeleteDialogProps extends StateProps, DispatchProps, RouteComponentProps<{ id: string }> {}
 

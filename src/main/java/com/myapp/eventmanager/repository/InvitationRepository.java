@@ -2,7 +2,7 @@ package com.myapp.eventmanager.repository;
 
 import com.myapp.eventmanager.domain.Invitation;
 import com.myapp.eventmanager.domain.enumeration.InvitationStatus;
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.*;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;

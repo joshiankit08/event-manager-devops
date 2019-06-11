@@ -2,10 +2,10 @@ package com.myapp.eventmanager.web.rest;
 
 import com.myapp.eventmanager.EventmanagerApp;
 import com.myapp.eventmanager.domain.Invitation;
-import com.myapp.eventmanager.domain.enumeration.InvitationStatus;
 import com.myapp.eventmanager.repository.InvitationRepository;
 import com.myapp.eventmanager.service.InvitationService;
 import com.myapp.eventmanager.web.rest.errors.ExceptionTranslator;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.MockitoAnnotations;
@@ -27,6 +27,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.hamcrest.Matchers.hasItem;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+
+import com.myapp.eventmanager.domain.enumeration.InvitationStatus;
 /**
  * Integration tests for the {@Link InvitationResource} REST controller.
  */

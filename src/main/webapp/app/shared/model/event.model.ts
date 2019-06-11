@@ -4,6 +4,7 @@ import { IInvitation } from 'app/shared/model/invitation.model';
 export const enum EventStatus {
   CREATED = 'CREATED',
   LIVE = 'LIVE',
+  CLOSED = 'CLOSED',
   CANCELLED = 'CANCELLED'
 }
 

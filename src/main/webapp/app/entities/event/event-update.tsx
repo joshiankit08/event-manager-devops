@@ -1,15 +1,18 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link, RouteComponentProps } from 'react-router-dom';
-import { Button, Col, Label, Row } from 'reactstrap';
-import { AvField, AvForm, AvGroup, AvInput } from 'availity-reactstrap-validation';
+import { Button, Row, Col, Label } from 'reactstrap';
+import { AvFeedback, AvForm, AvGroup, AvInput, AvField } from 'availity-reactstrap-validation';
 // tslint:disable-next-line:no-unused-variable
+import { ICrudGetAction, ICrudGetAllAction, ICrudPutAction } from 'react-jhipster';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { IRootState } from 'app/shared/reducers';
 
-import { createEntity, getEntity, reset, updateEntity } from './event.reducer';
+import { getEntity, updateEntity, createEntity, reset } from './event.reducer';
+import { IEvent } from 'app/shared/model/event.model';
 // tslint:disable-next-line:no-unused-variable
 import { convertDateTimeFromServer, convertDateTimeToServer } from 'app/shared/util/date-utils';
+import { mapIdList } from 'app/shared/util/entity-utils';
 
 export interface IEventUpdateProps extends StateProps, DispatchProps, RouteComponentProps<{ id: string }> {}
 
@@ -153,6 +156,7 @@ export class EventUpdate extends React.Component<IEventUpdateProps, IEventUpdate
                   >
                     <option value="CREATED">CREATED</option>
                     <option value="LIVE">LIVE</option>
+                    <option value="CLOSED">CLOSED</option>
                     <option value="CANCELLED">CANCELLED</option>
                   </AvInput>
                 </AvGroup>
