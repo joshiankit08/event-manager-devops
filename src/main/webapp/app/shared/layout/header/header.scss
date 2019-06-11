@@ -5,7 +5,7 @@ $header-color-hover: darken($header-color, 20%);
 /* ==========================================================================
 Developement Ribbon
 ========================================================================== */
-/*.ribbon {
+.ribbon {
   background-color: rgba(170, 0, 0, 0.5);
   left: -3.5em;
   -moz-transform: rotate(-45deg);
@@ -32,7 +32,7 @@ Developement Ribbon
     text-shadow: 0 0 5px #444;
     pointer-events: none;
   }
-}*/
+}
 
 /* ==========================================================================
 Navbar styles
