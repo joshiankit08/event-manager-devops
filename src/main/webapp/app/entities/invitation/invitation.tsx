@@ -114,15 +114,23 @@ export class Invitation extends React.Component<IInvitationProps, IInvitationSta
                     </td>
                     <td>{invitation.subject}</td>
                     <td>{invitation.invitationStatus}</td>
-                    <td>{invitation.event ? <Link to={`event/${invitation.event.id}`}>{invitation.event.id}</Link> : ''}</td>
-                    <td>{invitation.guest ? <Link to={`guest/${invitation.guest.id}`}>{invitation.guest.id}</Link> : ''}</td>
+                    <td>{invitation.event ? <Link to={`event/${invitation.event.id}`}>{invitation.event.name}</Link> : ''}</td>
+                    <td>
+                      {invitation.guest ? (
+                        <Link to={`guest/${invitation.guest.id}`}>
+                          {invitation.guest.firstName.concat(' ').concat(invitation.guest.lastName)}
+                        </Link>
+                      ) : (
+                        ''
+                      )}
+                    </td>
                     <td className="text-right">
                       <div className="btn-group flex-btn-group-container">
                         <Button tag={Link} to={`${match.url}/${invitation.id}`} color="info" size="sm">
                           <FontAwesomeIcon icon="eye" /> <span className="d-none d-md-inline">View</span>
                         </Button>
                         <Button tag={Link} to={`${match.url}/${invitation.id}/edit`} color="primary" size="sm">
-                          <FontAwesomeIcon icon="pencil-alt" /> <span className="d-none d-md-inline">Edit</span>
+                          <FontAwesomeIcon icon="pencil-alt" /> <span className="d-none d-md-inline">Edit/Invite</span>
                         </Button>
                         <Button tag={Link} to={`${match.url}/${invitation.id}/delete`} color="danger" size="sm">
                           <FontAwesomeIcon icon="trash" /> <span className="d-none d-md-inline">Delete</span>

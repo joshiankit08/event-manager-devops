@@ -1,11 +1,16 @@
 package com.myapp.eventmanager.service.impl;
 
+import com.myapp.eventmanager.domain.Event;
+import com.myapp.eventmanager.domain.enumeration.EventStatus;
+import com.myapp.eventmanager.domain.enumeration.InvitationStatus;
 import com.myapp.eventmanager.service.InvitationService;
 import com.myapp.eventmanager.domain.Invitation;
 import com.myapp.eventmanager.repository.InvitationRepository;
+import com.myapp.eventmanager.web.rest.errors.BadRequestAlertException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -24,6 +29,9 @@ public class InvitationServiceImpl implements InvitationService {
 
     private final InvitationRepository invitationRepository;
 
+    @Autowired
+    private EventServiceImpl eventService;
+
     public InvitationServiceImpl(InvitationRepository invitationRepository) {
         this.invitationRepository = invitationRepository;
     }
@@ -39,6 +47,35 @@ public class InvitationServiceImpl implements InvitationService {
         log.debug("Request to save Invitation : {}", invitation);
         return invitationRepository.save(invitation);
     }
+
+    @Override
+    public Invitation update(Invitation invitation) {
+        log.debug("Request to update Invitation : {}", invitation);
+        Event event = null;
+        if(invitation.getEvent() != null){
+            Optional<Event> savedEvent = eventService.findOne(invitation.getEvent().getId());
+            if(savedEvent.isPresent()){
+                event = savedEvent.get();
+                if(event.getEventStatus().equals(EventStatus.CANCELLED) || event.getEventStatus().equals(EventStatus.CLOSED)){
+                    throw new BadRequestAlertException("Event already " + event.getEventStatus(), "Invalid Invitation", "Can not send invitation to non-active event. ");
+                }
+            }
+
+        }
+        checkStatusBeforeSave(invitation);
+        return invitationRepository.save(invitation);
+    }
+
+    private void checkStatusBeforeSave(Invitation invitation) {
+        if(invitation.getGuest() != null){
+            if(invitation.getGuest().getId() != null){
+                invitation.setInvitationStatus(InvitationStatus.SENT);
+            }
+        } else {
+            invitation.setInvitationStatus(InvitationStatus.CREATED);
+        }
+    }
+
 
     /**
      * Get all the invitations.

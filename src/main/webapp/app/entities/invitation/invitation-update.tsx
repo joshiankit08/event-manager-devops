@@ -131,7 +131,7 @@ export class InvitationUpdate extends React.Component<IInvitationUpdateProps, II
                     {events
                       ? events.map(otherEntity => (
                           <option value={otherEntity.id} key={otherEntity.id}>
-                            {otherEntity.id}
+                            {otherEntity.name}
                           </option>
                         ))
                       : null}
@@ -144,7 +144,7 @@ export class InvitationUpdate extends React.Component<IInvitationUpdateProps, II
                     {guests
                       ? guests.map(otherEntity => (
                           <option value={otherEntity.id} key={otherEntity.id}>
-                            {otherEntity.id}
+                            {otherEntity.firstName.concat(' ').concat(otherEntity.lastName)}
                           </option>
                         ))
                       : null}
