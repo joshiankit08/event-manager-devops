@@ -68,6 +68,9 @@ public class InvitationServiceImpl implements InvitationService {
 
     private void checkStatusBeforeSave(Invitation invitation) {
         if(invitation.getGuest() != null){
+            if(invitation.getEvent() == null){
+                throw new BadRequestAlertException("OH snap!, you forgot to add an event ", "Invalid Invitation", "Can not send invitation to empty. ");
+            }
             if(invitation.getGuest().getId() != null){
                 invitation.setInvitationStatus(InvitationStatus.SENT);
             }
