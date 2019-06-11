@@ -85,7 +85,7 @@ public class InvitationResource {
         if (invitation.getId() == null) {
             throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");
         }
-        Invitation result = invitationService.save(invitation);
+        Invitation result = invitationService.update(invitation);
         return ResponseEntity.ok()
             .headers(HeaderUtil.createEntityUpdateAlert(applicationName, false, ENTITY_NAME, invitation.getId().toString()))
             .body(result);

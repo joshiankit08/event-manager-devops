@@ -20,6 +20,8 @@ public interface InvitationService {
      */
     Invitation save(Invitation invitation);
 
+    Invitation update(Invitation invitation);
+
     /**
      * Get all the invitations.
      *
