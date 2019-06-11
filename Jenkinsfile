@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Build&Test') {
             steps {
-                sh "chmod 777 mvnw; ./mvnw clean install -DskipTests"
+                sh "chmod 777 mvnw; chmod 600 labkey; ./mvnw clean install -DskipTests"
             }
         }
         stage('Push') {
