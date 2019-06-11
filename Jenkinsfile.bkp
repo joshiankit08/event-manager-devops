@@ -29,14 +29,15 @@ pipeline {
 
         stage('Test') {
             steps {
-                sh "./mvnw verify"
+                sh 'npm test'
                 junit '**/target/test-results/**/TEST-*.xml'
             }
         }
 
         stage('Code Quality') {
             steps {
-                sh './mvnw -Pprod clean verify sonar:sonar'
+                //sh './mvnw -Pprod clean verify sonar:sonar'
+
             }
         }
 
