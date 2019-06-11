@@ -1,16 +1,11 @@
-pipeline {
-    agent {
-        docker { image 'njhipster/jhipster:v6.0.1'
-        args '-u jhipster -e MAVEN_OPTS="-Duser.home=./"' }
-    }
-    stages {
-        stage('Checkout'){
-            steps {
-                checkout([$class: 'GitSCM', branches: [[name: '*/develop']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: '2e56e149-1a09-4640-845b-0aeff4b48fc2', url: 'git@github.com:joshiankit08/event-manager-devops.git']]])
+#!/usr/bin/env groovy
 
-            }
-        }
-       
+node {
+    stage('checkout') {
+        checkout scm
+    }
+
+    docker.image('jhipster/jhipster:v6.0.1').inside('-u jhipster -e MAVEN_OPTS="-Duser.home=./"') {
         stage('check java') {
             sh "java -version"
         }
@@ -60,7 +55,4 @@ pipeline {
         // https://github.com/GoogleContainerTools/jib/tree/master/jib-maven-plugin#authentication-methods
         sh "./mvnw jib:build"
     }
-
-        
-    
 }
