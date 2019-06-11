@@ -1,0 +1,36 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "com.myapp.eventmanager"
+    },
+    "jhipsterVersion": "6.0.1",
+    "applicationType": "monolith",
+    "baseName": "eventmanager",
+    "packageName": "com.myapp.eventmanager",
+    "packageFolder": "com/myapp/eventmanager",
+    "serverPort": "8080",
+    "authenticationType": "session",
+    "cacheProvider": "no",
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "h2Memory",
+    "prodDatabaseType": "postgresql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": false,
+    "buildTool": "maven",
+    "enableSwaggerCodegen": true,
+    "rememberMeKey": "7c579984aa2eaa460d5956fe1ec8a2fb3f7f4f3a5c33e0b4e4893b863fbbcffea5c9b4cb508a941f342975e363d9c8dc7374",
+    "clientFramework": "react",
+    "clientTheme": "pulse",
+    "clientThemeVariant": "primary",
+    "useSass": true,
+    "clientPackageManager": "npm",
+    "testFrameworks": ["cucumber"],
+    "jhiPrefix": "jhi",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [],
+    "enableTranslation": false
+  }
+}

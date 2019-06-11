@@ -1,0 +1,44 @@
+entity Event {
+	name String required
+    description String 
+    startDate Instant required
+    endDate Instant required
+    location String
+    eventStatus EventStatus
+}
+
+entity Guest {
+	firstName String
+    lastName String
+    email String
+}
+
+entity Invitation {
+	subject String required
+	invitationStatus InvitationStatus
+
+}
+
+enum EventStatus{
+    CREATED, LIVE, CANCELLED
+
+}
+
+enum InvitationStatus{
+    CREATED, SENT, APPROVED, REJECTED
+}
+
+//relationship OneToOne{
+//    Invitation{event} to Event
+//}
+
+
+//A guest can be sent an invite for multiple events and An invitation for an event can be sent to multiple guests
+relationship OneToMany {
+    Guest{acceptedInvitations} to Invitation
+	Event{acceptedInvitations} to Invitation
+}
+
+// Set pagination options
+paginate Event, Guest, Invitation with infinite-scroll
+service all with serviceImpl

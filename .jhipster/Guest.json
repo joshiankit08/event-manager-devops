@@ -1,0 +1,34 @@
+{
+    "name": "Guest",
+    "fields": [
+        {
+            "fieldName": "firstName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "lastName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "email",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "invitation",
+            "otherEntityRelationshipName": "guest",
+            "relationshipName": "acceptedInvitations"
+        }
+    ],
+    "changelogDate": "20190610135617",
+    "entityTableName": "guest",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

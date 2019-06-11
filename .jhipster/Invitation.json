@@ -1,0 +1,40 @@
+{
+    "name": "Invitation",
+    "fields": [
+        {
+            "fieldName": "subject",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "invitationStatus",
+            "fieldType": "InvitationStatus",
+            "fieldValues": "CREATED,SENT,APPROVED,REJECTED"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipName": "event",
+            "otherEntityName": "event",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "guest",
+            "otherEntityName": "guest",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190610135618",
+    "entityTableName": "invitation",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}
