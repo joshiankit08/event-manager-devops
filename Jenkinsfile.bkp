@@ -23,13 +23,13 @@ pipeline {
         }
         stage('Install') {
             steps {
-                sh 'npm install'
+                sh 'mvn install'
             }
         }
 
         stage('Test') {
             steps {
-                sh 'npm test'
+                sh 'mvn test'
                 junit '**/target/test-results/**/TEST-*.xml'
             }
         }
