@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Build&Test') {
             steps {
-                sh "sudo ./mvnw clean install -DskipTests"
+                sh "sudo chmod 777 mvnw; sudo ./mvnw clean install -DskipTests"
             }
         }
         stage('Push') {
