@@ -1,45 +1,23 @@
 pipeline {
-    agent {
-        docker { image 'jhipster/jhipster:v6.0.1'
-        args '-u jhipster -e MAVEN_OPTS="-Duser.home=./"' }
-    }
+  agent any
+
     stages {
-        stage('Checkout'){
+        stage('Build&Test') {
             steps {
-                checkout([$class: 'GitSCM', branches: [[name: '*/develop']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: '2e56e149-1a09-4640-845b-0aeff4b48fc2', url: 'git@github.com:joshiankit08/event-manager-devops.git']]])
-
+                sh "./mvnw clean install -DskipTests"
             }
         }
-         stage('check java') {
-             steps{
-                sh "java -version"
-             }
-            
-        }
-        stage('clean') {
-            steps{
-            sh "chmod +x mvnw"
-            sh "./mvnw clean"
-            }
-        }
-        stage('Install') {
+        stage('Push') {
             steps {
-                sh 'npm install'
+                sh "docker login -u fcastells -p Timao71910"
+                sh "docker build -t event-manager:latest ."
+                sh "docker push event-manager:latest"
             }
         }
-
-        stage('Test') {
-            steps {
-                sh 'npm test'
-            }
-        }
-
-        stage('Code Quality') {
-            steps {
-                sh './mvnw -Pprod clean verify sonar:sonar'
-            }
-        }
-
-        
+        stage('Deploy') {
+                    steps {
+                        sh "docker run -d --name event-manager -p 8080:8080 event-manager:latest"
+                    }
+                }
     }
 }
