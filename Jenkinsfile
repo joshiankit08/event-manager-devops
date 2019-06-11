@@ -16,7 +16,7 @@ pipeline {
         }
         stage('Deploy') {
                     steps {
-                        sh "docker run -d --name event-manager -p 8080:8080 event-manager:latest"
+                        sh "ssh -i labkey ubuntu@34.218.255.158 docker run -d --name event-manager -p 8080:8080 event-manager:latest"
                     }
                 }
     }

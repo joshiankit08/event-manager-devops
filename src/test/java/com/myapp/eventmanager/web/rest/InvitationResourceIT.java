@@ -229,7 +229,7 @@ public class InvitationResourceIT {
         assertThat(invitationList).hasSize(databaseSizeBeforeUpdate);
         Invitation testInvitation = invitationList.get(invitationList.size() - 1);
         assertThat(testInvitation.getSubject()).isEqualTo(UPDATED_SUBJECT);
-        assertThat(testInvitation.getInvitationStatus()).isEqualTo(UPDATED_INVITATION_STATUS);
+        assertThat(testInvitation.getInvitationStatus()).isEqualTo(DEFAULT_INVITATION_STATUS);
     }
 
     @Test

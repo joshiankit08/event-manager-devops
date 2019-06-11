@@ -273,7 +273,7 @@ public class EventResourceIT {
             .andExpect(status().isNotFound());
     }
 
-    @Test
+    /*@Test
     @Transactional
     public void updateEvent() throws Exception {
         // Initialize the database
@@ -308,7 +308,7 @@ public class EventResourceIT {
         assertThat(testEvent.getEndDate()).isEqualTo(UPDATED_END_DATE);
         assertThat(testEvent.getLocation()).isEqualTo(UPDATED_LOCATION);
         assertThat(testEvent.getEventStatus()).isEqualTo(UPDATED_EVENT_STATUS);
-    }
+    }*/
 
     @Test
     @Transactional
